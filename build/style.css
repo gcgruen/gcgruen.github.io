@@ -1,0 +1,155 @@
+ul {
+    -webkit-padding-start: 0px;
+}
+
+#menu li {
+	font-family: "Lato", "sans-serif";
+	font-size: 0.8em;
+	display: inline-block;
+	margin-right: 7px;
+	padding-right: 7px;
+	border-right: 0.5px solid #333;
+	text-align:left;
+	
+}
+
+li a:link {
+	color: #3e3e3e;
+	text-decoration: none;
+}
+
+.nav-container li a:focus, .nav-container li a:hover, .nav-container li a:active, .nav-container li a:visited {
+	color: #3e3e3e;
+	background: #26C485;
+	text-decoration: none;
+}
+
+p a:link, p a:focus, p a:hover, p a:active, p a:visited {
+	color: #26C485;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+h5 a:link, h5 a:focus, h5 a:hover, h5 a:active, h5 a:visited {
+	color: #26C485;
+	text-decoration: none;
+}
+
+
+img { 
+    margin:10px;
+
+}
+
+h1 {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 60px;
+	font-variant:'thin';
+	font-weight:300;
+
+}
+
+h2 {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 40px;
+	font-variant:'thin';
+	font-weight:300;
+	margin-top: 60px;
+	margin-bottom:20px;
+	border-bottom: 0.5px solid black;
+
+}
+
+h3 {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 35px;
+	font-variant:'thin';
+	font-weight:300;
+	margin-top: 30px;
+	margin-bottom:-10px;
+	/*border-bottom: 0.5px solid black;*/
+
+}
+
+h4 {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 26px;
+	font-variant:'thin';
+	font-weight:300;
+
+}
+
+h5 {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 19px;
+	font-variant:'regular';
+	font-weight:600;
+	margin-bottom: 0px;
+
+}
+
+li, p {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 1.2em;
+	line-height: 1.5em;
+	font-weight: 300;
+}
+
+.preview {
+	display: inline-block;
+}
+
+.preview h5 {
+	margin: 10px;
+	font-size: 1em;
+	max-width: 300px;
+}
+
+.preview p {
+	margin: 10px;
+	max-width: 300px;
+	font-size: 0.9em;
+}
+
+.preview a {
+	text-decoration: none;
+}
+
+.preview li a:link, li a:visited {
+	text-decoration: none;
+	color:#333;
+}
+
+.container {
+	max-width: 680px;
+	margin: 0 auto;
+}
+.container ul {
+    -webkit-padding-start: 40px;
+}
+
+.nav-container {
+	max-width: 680px;
+	margin: 0 auto;
+}
+
+.projects-container {
+	max-width: 980px;
+	margin: 0 auto;
+	padding-left:20px;
+}
+
+.social-links li {
+	display: inline-block;
+}
+
+ul.social-links {
+	-webkit-padding-start:0px;
+}
+
+
+#footer p {
+	font-size: 8pt;
+	color:grey;
+	margin-top: 50px;
+}
