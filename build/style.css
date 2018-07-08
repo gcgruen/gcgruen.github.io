@@ -4,7 +4,7 @@ ul {
 
 #menu li {
 	font-family: "Lato", "sans-serif";
-	font-size: 0.8em;
+	font-size: 0.75em;
 	display: inline-block;
 	margin-right: 7px;
 	padding-right: 7px;
@@ -109,7 +109,7 @@ li, p {
 	margin: 10px;
 	max-width: 300px;
 	font-size: 0.9em;
-	margin-bottom:70px;
+	margin-bottom:55px;
 }
 
 .preview a {
