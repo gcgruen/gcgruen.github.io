@@ -51,7 +51,7 @@ h1 {
 
 h2 {
 	font-family: 'Raleway', 'sans-serif';
-	font-size: 40px;
+	font-size: 38px;
 	font-variant:'thin';
 	font-weight:300;
 	margin-top: 60px;
@@ -109,6 +109,7 @@ li, p {
 	margin: 10px;
 	max-width: 300px;
 	font-size: 0.9em;
+	margin-bottom:70px;
 }
 
 .preview a {
@@ -123,6 +124,7 @@ li, p {
 .container {
 	max-width: 680px;
 	margin: 0 auto;
+	padding:2px;
 }
 .container ul {
     -webkit-padding-start: 40px;
@@ -135,7 +137,7 @@ li, p {
 
 .projects-container {
 	max-width: 980px;
-	margin: 0 auto;
+	margin: auto;
 	padding-left:20px;
 }
 
