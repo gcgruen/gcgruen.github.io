@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang = 'de'>
+<head>
+	<meta charset = 'utf-8'>
+	<title>gcg | Teaching | QGIS </title>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+	<link rel='icon' content ='about/favicon.ico'/>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,700" type="text/css" />
+	<style>
+	h1 {
+		font-family: 'Raleway', 'sans-serif';
+		font-size: 60px;
+		font-variant:'thin';
+		font-weight:300;
+	}
+
+	h3 {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 35px;
+	font-variant:'thin';
+	font-weight:300;
+	margin-top: 30px;
+	margin-bottom:-10px;
+
+	}
+
+	h5 {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 30px;
+	font-weight:500;
+	margin-top: 30px;
+	margin-bottom:-10px;
+	/*border-bottom: 0.5px solid black;*/
+
+	}
+
+	p, li {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 1.1em;
+	line-height: 1.2em;
+	font-weight: 300;
+	}
+
+	body {
+		margin-left: 50px;
+		margin-right: 50px;
+	}
+
+	.boxed {
+		border: 1px solid black;
+		margin-left: 80px;
+		margin-right: 100px;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		padding-left: 20px;
+		padding-right: 20px;
+		background: #26C485;
+	}
+
+	</style>
+</head>
+
+<body>
+<h1>QGIS tutorial</h1>
+
+<p> Welcome to a free tool that offers you lots of options but is not very intuitive! </p>
+<p> This guide operates on the 2.18 version (Las Palmas), in case you haven't installed it yet, please head to the <a href="https://www.qgis.org/de/site/forusers/download.html">download page</a>.</p>
+
+<h3> Let's make a choropleth map with QGIS! </h3>
+
+<div class='boxed'>
+
+<p> To get started with a choropleth map, where you color geographical units according to different values, you need</p>
+<ul>
+	<li> a geofile (e.g. shapefile) outlining the geographical units you want to display (e.g. districs in Germany)</li>
+	<li> a dataset that contains the values you want to color the map by</li>
+</ul>
+
+<p>It's important that both your geofile and your dataset have one column in common, that you can use later on to connect the two. This column can have a different column title in each of the files, but the content of that column should be the same (e.g. district ids).</p>
+
+</div>
+
+<p> Meet the QGIS interface and the most important buttons on it</p>
+<img src="qgis-pics/01-QGIS-Canvas.png" width="800" heigh="100%">
+
+<h5> 1. Import your geographical layer you want to plot data on </h5>
+
+<p> For shapefiles: Make sure you have all five filetypes (.shp .dbf .shx .prj .cpg)</p>
+<p> And zip the folder containing them </p>
+
+<p> You can either drag-and drop the zipped file onto the left panel where it says 'Layers Panel' on top;</p>
+<p> or you can use the 'Add vector layer' button (1), if you click it, an import dialogue opens. </p>
+<img src="qgis-pics/02-Import-Dialogue.png">
+
+<p>Choose the right encoding (if you already know it, if not you can still change that later), select the path where you have saved the zipped shapefile and click open. </p>
+
+<p>It should result in an image like this:</p>
+<img src="qgis-pics/03-Import-Successful.png" width="900" heigh="100%">
+
+<p> You can now take a first look at the data, by clicking on the "Open Attribute Table" button (2) to inspect the data and a table view of your imported data opens.</p>
+
+<img src="qgis-pics/04-Attributes-Table.png" width="900" heigh="100%">
+
+<p> You can now see that the dataset has four different columns: ADE, RS, RS_0 and GEN. If you look at the contents of the GEN column, you will see that some of the letters aren't displayed correctly. This points at an encoding error. To fix this, you need to close this attribute table and open the properties of the layer, by right-clicking on the layer.</p>
+
+<img src="qgis-pics/05-Open-Layer-Properties.png">
+
+<p>Then the properties window opens. Note that it has many different tabs on the left-hand pane (we will use some of them later), but that you are automatically directed to the 'General' one, where you can change the 'data source encoding' (a) to fix the encoding issue we found earlier.</p> 
+
+<img src="qgis-pics/06-Change-Encoding.png" width="900" heigh="100%">
+
+<p>You can also select a projection (b) if you want to. This is especially relevant if you map something on a larger scale (e.g. the African continent). Projections define how to bring the round shape of the earth to a 2d area in the most useful way. When sourcing your geospatial data layer, you should then watch out for which projection it uses and also select the same one here.</p>
+
+<h5> 2. Import the data you want to plot onto the map </h5>
+
+<p>The easiest way is to just drag and drop it into the layers panel on the left-hand side.</p>
+<p>You should check whether the encoding is correct via the open attributes table, like we did with the above dataset (and of course, correct it, if it isn't right.</p>
+
+<p>Next, we are going to look at another of the properties. Open the properties window with right-click on the layer and select the fields tab.</p>
+
+<p>In the 'Fields' tab QGIS gives you a list of all the columns that are contained in your dataset and also lets you know what type of data is in each column.</p>
+
+<img src="qgis-pics/07-Properties-Fields.png" width="900" heigh="100%">
+
+<p>There are three data types that are relevant to us right now: "String" refers to words, "Integer" would be non-decimal numbers and "Real" would be decimal numbers.</p>
+
+<p>In order for us to color the map according to a certain value, e.g. the share of people above 55 years old, QGIS needs to recognize that the column containing these values is numerical -- so it would need to say "Real" here, instead of "String". But right now, QGIS thinks that both columns '55+' and 'Anteil_55+' contain words, not numbers.</p>
+
+
+
+<p>Since QGIS seems to not do a good job at recognizing the datatype correctly by itself, we need to let QGIS know what data type is in each column. To do that, we need to create an additional file.</p>
+
+<h5> 3. Enter: The .csvt file</h5>
+
+<p>Open a text editor like Atom or Sublime Text in order to create a .csvt file.</p>
+<p>In this file you tell QGIS what data type is in each column. It's important to get all the details right on this one:</p>
+<ul>
+	<li>Name the file like your exactly like your csv file with the data is named. The only change is that you write a .csvt at the end instead of saving it as a .csv file</li>
+	<li>This .csvt file needs to be stored in the same folder where your csv file is located.</li>
+	<li>The file is only allowed to contain one line, that for each column indicates the datatype. This datatype needs to be written the exact same way as indicated above (capital first letter), each word in double quotation marks and separated by a comma. For our current table the content of the .csvt file should look like this:</br>
+		<img src="qgis-pics/08-csvt-file-example.png">
+	</li>
+</ul>
+
+<p>As said, save it with the same name, but csvt ending in the same folder as the actual dataset.</p>
+
+<p>Now, just based on the mere existance of the file, QGIS does not automatically reload the data. So we need to remove the dataset from QGIS first (by deleting it: right-click on the layer and select 'Remove')</p>
+
+<p>After deleting the old import, you can now re-import the same data file by drag and drop. You only need to import your actual csv file, not the csvt file. The fact that it is present is sufficient, as QGIS automatically has a look at the source where your import from, looking for that csvt file by itself.</p>
+
+<p>If you now look at the "Fields" under that layer's "Properties" again, you will see that QGIS now correctly identifies the two last columns as containing integers or decimal numbers, respectively.</p>
+
+<img src="qgis-pics/09-Correct-datatypes.png" width="900" heigh="100%">
+
+<p>Which means we are finally ready to join the two together! \o/</p>
+
+<h5> 4. Join both files together</h5>
+
+<p>Open the properties window for your geofile and select the tab "Join". On the bottom of this tab, you'll find a green plus sign – click it!</p>
+
+<p>Another window will open where you define what to connect the geofile to and how.</p>
+<img src="qgis-pics/10-Join-datasets.png" width="900" heigh="100%">
+
+<p>On (c) you select the dataset you want to join</p>
+<p>On (d) you select the column both files have in common -- for the dataset.</p>
+<p>On (e) you select the column both files have in common -- for the geofile.</p>
+<p>On (f) you define what should be taken on to the joint file: we want to select manually and we want to select all of it.</p>
+<p>After you've made all these selections, click OK and OK again.</p>
+
+<p>On first sight, you won't see any change. That's because we have connected the files, but we haven't told QGIS yet, what to color it by.</p>
+
+<h5> 5. Style your map</h5>
+
+<p>Open the properties of the geofile-layer and go to the "Style" tab. Here, we have to change several things:</p>
+<img src="qgis-pics/11-Style-map.png" width="900" heigh="100%">
+<p>(g) Change the style from 'Simple' to "Graduated"</p>
+<p>(h) Select the column to color by</p>
+<p>(i) in the Legend Format select "Precision 0" (for zero decimal points)</p>
+<p>(j) select a color ramp of your choice</p>
+<p>(k) make sure the Mode is on "equal intervals"</p>
+<p>(m) the number of classes you want to diplay</p>
+<p>(n) classify and then ok</p>
+
+<p>Then your map should look like this:</p>
+
+<img src="qgis-pics/12-Choropleth-Map.png" width="900" heigh="100%">
+
+<p>When you see white spots on your map, like the one right in the middle, this could be either because the data is missing in the original dataset or the joining the geofile to the dataset didn't work for this particular datapoint. You should always follow up on seemingly missing data and find out why it is not displayed and whether it can be corrected or is ok for your story.</p>
+
+<div class='boxed'>
+	<h5>Take away: All you need for making a choropleth map in QGIS</h5>
+	<ul>
+		<li>a geofile with the geographical units you want to color</li>
+		<li>a dataset that contains the values you want to color the map by</li>
+		<li>know the column titles for the column both files have in common (the one to connect them)</li>
+		<li>a csvt file</li>
+	</ul>
+</div>
+
+<h5> 6. Inspect your map</h5>
+<p>By clicking on the 'Identify features' button you can select single geographical units and see the values for them.</p>
+
+<img src="qgis-pics/13-information-feature.png" width="900" heigh="100%">
+
+<h5> 7. Export your map</h5>
+
+<p>After you finished styling your map, you'd want to export it. If you go to the menu and click on project, there's "Save as image" in the dropdown menu. However, this only saves the map itself, without a legend. If you want to include the legend (you basically always want that), you need to go down to and click "New Print Composer"</p>
+
+<img src="qgis-pics/14-Exporting.png">
+
+<p>Yet another window opens, with another set of buttons.</p>
+
+<img
+
+</body>
