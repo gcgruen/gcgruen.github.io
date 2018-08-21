@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+	<meta charset = 'utf-8'>
+	<title>gcg | Learn | Open Refine </title>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+	<link rel='icon' content ='about/favicon.ico'/>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,700" type="text/css" />
+	<style>
+	h1 {
+		font-family: 'Raleway', 'sans-serif';
+		font-size: 60px;
+		font-variant:'thin';
+		font-weight:300;
+	}
+
+	h3 {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 35px;
+	font-variant:'thin';
+	font-weight:300;
+	margin-top: 30px;
+	margin-bottom:-10px;
+
+	}
+
+	h5 {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 30px;
+	font-weight:500;
+	margin-top: 30px;
+	margin-bottom:-10px;
+	/*border-bottom: 0.5px solid black;*/
+
+	}
+
+	p, li {
+	font-family: 'Raleway', 'sans-serif';
+	font-size: 1.1em;
+	line-height: 1.2em;
+	font-weight: 300;
+	}
+
+	body {
+		margin-left: 50px;
+		margin-right: 50px;
+		margin-bottom: 0px;
+	}
+
+	.boxed {
+		border: 1px solid black;
+		margin-left: 80px;
+		margin-right: 100px;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		padding-left: 20px;
+		padding-right: 20px;
+		background: #26C485;
+	}
+
+	code {
+		background: #E4E8EB;
+		color:#26C485;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	#footer {
+		background:#80E6C1;
+		margin-left: -50px;
+		margin-right: -50px;
+		margin-top:100px;
+		padding-bottom: 50px;
+		padding-left:50px;
+		padding-top:20px;
+	}
+
+	#footer p {
+		font-size:1em;
+		color:#000000;
+	}
+
+	</style>
+</head>
+
+<body>
+<h1>Open Refine tutorial</h1>
+
+<p><strong>Usage:</strong> Open Refine is a tool to unify messy text data based on similarity: For example, it's capable of recognizing that Google, GOogle and Googl might be the same thing and can fix - without you having to do a lot of "find and replace" or check every entry in your dataset manually.</p>
+
+<p><strong>Wait, but why </strong>would you want to do that? If you move on with analysing your dataset and you use features like Pivot tables to sum all values of a certain kind, they will only be recognized as the same kind if they are spelled the exact same way.</p>
+
+<p>If you haven't installed Open Refine yet, head to <a href="http://openrefine.org/download.html">their download page</a>, where you can also find more information about the program itself.</p>
+
+<p>If you've installed the software and want to open it and it doesn't work (as in: your standard browser should open up a new tab/window and the following Open Refine user interface appears), you can - after starting the program - head to your browser and type <code>http://127.0.0.1:3333/</code> in the url line. When successful you should see something like this:</p>
+
+<img src="open-refine-files/01-Start-View.png" width="900px" height="100%">
+
+<p>In this tutorial we'll work with <a href="open-refine-files/OR-example-party-donations-2013-2015.csv">this example file</a>, it is a .csv file, but as you can see, you can also work with various other file types. In the example file each entry is any donation above 3000 euros from an individual or company to a German political party between 2013 and 2015. It lists the donor, the donor's address, the receiving party and the sum donated per year.</p>
+
+<img src="open-refine-files/02-Import-Data.png" width="900px" height="100%">
+
+<p>When you have created your project it should look something like this:</p>
+
+<img src="open-refine-files/03-Data-imported.png" width="900px" height="100%">
+
+<h3>Cluster your data</h3>
+
+<p>For cleaning the data, you have to do that for each column separately, so you'd click on the dropdown icon on the column you want to clean and select "text facet"</p>
+
+<img src="open-refine-files/04-Open-text-facet.png" width="900px" height="100%">
+
+<p>In your left column, that facet will appear with a "cluster" button on the top right corner of it. If you click on it, a new window opens up. On the top you have a combinatio of two dropdown menus that allows you to select different clustering methods.</p>
+
+<p>For each of the methods Open Refine shows you what entries it thinks are the same and asks you to merge these into one by ticking the box under "Merge?", you can also define what the unified name should be.</p>
+
+<p>In case you are unsure about whether two entries are the same, there's also a "Browse this cluser" button at the end of each cluster. Once you selected all of the clusters to merge, hit the "Merge and re-cluster" button.</p>
+
+<img src="open-refine-files/05-Cluster.png" width="1000px" height="100%">
+
+<p>Repeat this process for all cluster methods until there's nothing else left you want to cluster, then you close the cluster window and export your file in the desired format via the button is the top right corner.</p>
+
+<p><strong>If you are looking for a commandline-based tool</strong>, I recommend checking out Max Harlow's <a href="https://github.com/maxharlow/csvmatch">fuzzy matching.</a>
+
+<div id = 'footer'>
+	<p><strong>Who wrote this?</strong> This tutorial was written by Gianna-Carina Grün under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">CC-BY-NC-SA 3.0 license</a>, you can learn more about me <a href="https://gcgruen.github.io/">here</a>.</p>
+</div>
+
+</body>
+
+
+</html>
