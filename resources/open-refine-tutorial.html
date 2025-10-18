@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Open Refine Tutorial — Gianna Carina Grün</title>
+  <meta name="description" content="A tutorial for cleaning data with OpenRefine by Gianna Carina Grün." />
+  <meta name="theme-color" content="#49C485" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="../index.html" class="brand-link">
+          <h1 class="brand-name">Gianna Carina Grün</h1>
+          <p class="brand-sub">Data Journalist • DDJ Trainer</p>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container narrow">
+
+      <p class="back-link"><a href="index.html">← Back to resources</a></p>
+
+      <header class="article-header">
+        <h1 class="article-title">Open Refine tutorial</h1>
+      </header>
+
+      <article class="article-body">
+        <p><strong>Usage:</strong> Open Refine is a tool to unify messy text data based on similarity: For example, it's capable of recognizing that Google, GOogle and Googl might be the same thing and can fix - without you having to do a lot of "find and replace" or check every entry in your dataset manually.</p>
+
+        <p><strong>Wait, but why</strong> would you want to do that? If you move on with analysing your dataset and you use features like Pivot tables to sum all values of a certain kind, they will only be recognized as the same kind if they are spelled the exact same way.</p>
+
+        <p>If you haven't installed Open Refine yet, head to <a href="http://openrefine.org/download.html" target="_blank" rel="noopener">their download page</a>, where you can also find more information about the program itself.</p>
+
+        <p>If you've installed the software and want to open it and it doesn't work (as in: your standard browser should open up a new tab/window and the following Open Refine user interface appears), you can - after starting the program - head to your browser and type <code>http://127.0.0.1:3333/</code> in the URL line. When successful you should see something like this:</p>
+
+        <figure class="article-hero">
+          <img src="../assets/files/01-Start-View.png" alt="OpenRefine start view" />
+        </figure>
+
+        <p>In this tutorial we'll work with <a href="../assets/files/OR-example-party-donations-2013-2015.csv">this example file</a>, it is a .csv file, but as you can see, you can also work with various other file types. In the example file each entry is any donation above 3000 euros from an individual or company to a German political party between 2013 and 2015. It lists the donor, the donor's address, the receiving party and the sum donated per year.</p>
+
+        <figure>
+          <img src="../assets/files/02-Import-data.png" alt="OpenRefine import data view" />
+        </figure>
+
+        <p>When you have created your project it should look something like this:</p>
+
+        <figure>
+          <img src="../assets/files/03-data-imported.png" alt="OpenRefine imported data view" />
+        </figure>
+
+        <h2>Cluster your data</h2>
+
+        <p>For cleaning the data, you have to do that for each column separately, so you'd click on the dropdown icon on the column you want to clean and select "text facet".</p>
+
+        <figure>
+          <img src="../assets/files/04-Open-text-facet.png" alt="OpenRefine text facet" />
+        </figure>
+
+        <p>In your left column, that facet will appear with a "cluster" button on the top right corner of it. If you click on it, a new window opens up. On the top you have a combination of two dropdown menus that allows you to select different clustering methods.</p>
+
+        <p>For each of the methods Open Refine shows you what entries it thinks are the same and asks you to merge these into one by ticking the box under "Merge?", you can also define what the unified name should be.</p>
+
+        <p>In case you are unsure about whether two entries are the same, there's also a "Browse this cluster" button at the end of each cluster. Once you selected all of the clusters to merge, hit the "Merge and re-cluster" button.</p>
+
+        <figure>
+          <img src="../assets/files/05-Cluster.png" alt="OpenRefine cluster interface" />
+        </figure>
+
+        <p>Repeat this process for all cluster methods until there's nothing else left you want to cluster, then you close the cluster window and export your file in the desired format via the button in the top right corner.</p>
+
+        <p><strong>If you are looking for a command line-based tool</strong>, I recommend checking out Max Harlow's <a href="https://github.com/maxharlow/csvmatch" target="_blank" rel="noopener">fuzzy matching</a>.</p>
+
+        <div class="callout">
+          <p><strong>Who wrote this?</strong> This tutorial was written by Gianna-Carina Grün under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="noopener">CC-BY-NC-SA 3.0 license</a>. You can learn more about me <a href="https://gcgruen.github.io/" target="_blank" rel="noopener">here</a>.</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- CONTACT -->
+  <footer id="contact" class="site-footer">
+    <div class="container narrow">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-lead">For freelance assignments, collaborations, or training inquiries.</p>
+      <p class="contact-line">
+        <a href="mailto:gcgruen@gmail.com">gcgruen@gmail.com</a> •
+        <a href="https://linkedin.com/in/gianna-carina-gruen/" target="_blank" rel="noopener">LinkedIn</a> •
+        <a href="https://github.com/gcgruen" target="_blank" rel="noopener">GitHub</a>
+      </p>
+      <p class="copyright">© Gianna Carina Grün <span id="current-year"></span></p>
+      <p class="legal">Responsible according German law § 5 TMG and § 55 Abs. 2 RStV: Gianna-Carina Grün, Cranachstr. 37, 12157 Berlin, Germany.
+      Data privacy: Opening this website naturally transfers your IP address, browser name and browser version. This information is neither used nor stored in any way. This page is hosted on servers of GitHub that has recently been acquired by the US tech company Microsoft. Here you can find an up-to-date overview of the data GitHub collects when someone visits one of their sites, assuming that it is the same data collected when you visit a site hosted by GitHub. Furthermore this site utilizes Google Fonts, thus accessing this website indirectly accesses another server in the US and the user IP address is transferred. <a href="https://developers.google.com/fonts/faq?hl=de#what_does_using_the_google_fonts_api_mean_for_the_privacy_of_my_users" target="_blank" rel="noopener">Here</a> you can find more information on what information Google tracks via Google Fonts.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
