@@ -389,6 +389,21 @@ a:hover, a:focus {
   font-size: 0.95rem;
 }
 
+.article-date {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: -0.2rem;
+  margin-bottom: 1.2rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+.article-date time {
+  font-style: normal;
+  color: var(--text);
+}
+
+
 /* -----------------------------------
    CONTACT & FOOTER
 ----------------------------------- */
