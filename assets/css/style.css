@@ -364,7 +364,7 @@ a:hover, a:focus {
 }
 
 .card {
-  border: 1px solid #eee;
+  border: 2px solid var(--accent);
   border-radius: var(--radius);
   padding: 1rem;
   background: #fff;
